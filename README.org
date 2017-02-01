@@ -1,0 +1,13 @@
+* MA Travel Ban Hotline
+** (857) 269-3819
+** Setup instructions
+   This microservice is configured with [[https://serverless.com][Serverless]], written in [[https://www.python.org/download/releases/2.7/][Python 2.7]], and
+   deployed to [[https://aws.amazon.com/lambda/][AWS Lambda]]. There is one configuration file (~serverless.yml~)
+   and one Python file (~handler.py~).
+
+   1. Dependencies: git, npm, serverless (~npm install -g serverless~)
+   2. Set up an AWS account and [[https://serverless.com/framework/docs/providers/aws/guide/credentials/][set up your credentials]]
+      (The first million requests to Lambda are free.)
+   3. ~git clone https://github.com/codeforboston/travel-hotline.git~
+   4. ~cd travel-hotline~
+   5. ~serverless deploy~

@@ -1,0 +1,34 @@
+service: imma
+
+provider:
+  name: aws
+  runtime: python2.7
+  stage: dev
+  region: us-east-1
+  #environment:
+
+functions:
+  greeting:
+    handler: handler.greeting
+    name: ${self:provider.stage}-greeting
+    description: Present menu options to the user
+    events:
+      - http:
+          path: greeting
+          method: get
+  play:
+    handler: handler.play_selected
+    name: ${self:provider.stage}-play
+    description: Play the selected
+    events:
+      - http:
+          path: play_selected
+          method: post
+  sms:
+    handler: handler.respond_to_sms
+    name: ${self:provider.stage}-sms
+    description: Respond to SMS messages with the TRO URL
+    events:
+      - http:
+          path: /sms
+          method: get
